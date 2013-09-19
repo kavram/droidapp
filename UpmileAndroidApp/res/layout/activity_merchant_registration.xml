@@ -1,0 +1,163 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MerchantRegistrationActivity" >
+
+   <!-- Register progress -->
+
+    <LinearLayout
+        android:id="@+id/merchant_register_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/register_status_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/loading"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>    
+    
+ <ScrollView
+     android:id="@+id/merchant_register_form"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:visibility="visible" >
+
+        <LinearLayout
+            style="@style/LoginFormContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="356dp"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/merchant_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="29dp"
+                android:ems="10"
+                android:hint="@string/merchant_name"
+                android:inputType="text"
+                android:maxLength="@integer/merchant_name_length" />
+
+            <Spinner
+                android:id="@+id/category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/subcategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/phone"
+                android:inputType="phone" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/street"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/street"
+                android:inputType="text"
+                android:maxLength="@integer/street_length" />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/city"
+                android:inputType="text"
+                android:maxLength="@integer/city_length" />
+
+            <Spinner
+                android:id="@+id/state"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/zipcode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/zipcode"
+                android:inputType="number"
+                android:maxLength="@integer/zipcode_length" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".MerchantRegistrationActivity" >
+            
+            	<Button
+            	    android:id="@+id/bizreg_button"
+            	    android:layout_width="wrap_content"
+            	    android:layout_height="wrap_content"
+            	    android:layout_alignParentBottom="true"
+            	    android:layout_alignParentLeft="true"
+            	    android:layout_gravity="left"
+            	    android:layout_marginTop="16dp"
+            	    android:paddingLeft="32dp"
+            	    android:paddingRight="32dp"
+            	    android:text="@string/submit" />
+
+            	<Button
+            	    android:id="@+id/bizreg_cancel_button"
+            	    android:layout_width="wrap_content"
+            	    android:layout_height="wrap_content"
+            	    android:layout_alignParentBottom="true"
+            	    android:layout_alignParentRight="true"
+            	    android:paddingLeft="32dp"
+            	    android:paddingRight="32dp"
+            	    android:text="@string/cancel" />
+
+            	<Button
+            	    android:id="@+id/bizreg_ok_button"
+            	    android:layout_width="wrap_content"
+            	    android:layout_height="wrap_content"
+            	    android:layout_alignParentBottom="true"
+            	    android:layout_alignParentRight="true"
+            	    android:paddingLeft="32dp"
+            	    android:paddingRight="32dp"
+            	    android:text="@string/register_ok_button" />
+            	
+			</RelativeLayout>
+            	
+        </LinearLayout>
+
+</ScrollView>
+        
+</merge>

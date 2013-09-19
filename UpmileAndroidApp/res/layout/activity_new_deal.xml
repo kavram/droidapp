@@ -1,0 +1,201 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".NewDealActivity" >
+
+   <!-- Register progress -->
+
+    <LinearLayout
+        android:id="@+id/newDeal_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/newdeal_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/loading"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>    
+    
+ <ScrollView
+     android:id="@+id/newdeal_form"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:visibility="visible" >
+
+        <LinearLayout
+            style="@style/LoginFormContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="356dp"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/newdeal_picsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/picture1" 
+                android:visibility="invisible"/>
+            
+            <EditText
+                android:id="@+id/deal_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="29dp"
+                android:ems="10"
+                android:hint="@string/new_deal"
+                android:inputType="text"
+                android:maxLength="@integer/deal_name_length">
+                <requestFocus />
+            </EditText>
+            <EditText
+                android:id="@+id/newdeal_descr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/descr"
+                android:inputType="text"
+                android:maxLength="@integer/deal_description_length" />
+			<EditText
+                android:id="@+id/newdeal_oldprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/old_price"
+                android:inputType="numberDecimal"
+                android:maxLength="@integer/deal_oldprice_length" />
+
+            <EditText
+                android:id="@+id/newdeal_newprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/new_price"
+                android:inputType="numberDecimal"
+                android:maxLength="@integer/deal_newprice_length" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/deal_expiration" />
+
+            <EditText
+                android:id="@+id/newdeal_exptime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/time"
+                android:inputType="time"
+                android:maxLength="@integer/deal_exptime_length" />
+
+            <EditText
+                android:id="@+id/newdeal_expdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/date"
+                android:inputType="date"
+                android:maxLength="@integer/deal_expdate_length" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/location" />
+
+            <EditText
+                android:id="@+id/location_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/location_name"
+                android:inputType="text"
+                android:maxLength="@integer/deal_locname_length" />
+
+            <EditText
+                android:id="@+id/street"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/street"
+                android:inputType="text"
+                android:maxLength="@integer/street_length" />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/city"
+                android:inputType="text"
+                android:maxLength="@integer/city_length" />
+
+        	<Spinner
+                android:id="@+id/state"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            
+            <EditText
+                android:id="@+id/zipcode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/zipcode"
+                android:inputType="number"
+                android:maxLength="@integer/zipcode_length" />
+
+            <EditText
+                android:id="@+id/newdeal_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".NewDealActivity" >
+
+                <Button
+                    android:id="@+id/newdeal_submit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingLeft="32dp"
+                    android:paddingRight="32dp"
+                    android:text="@string/register_ok_button" />
+            	<Button
+            	    android:id="@+id/newdeal_cancel_button"
+            	    android:layout_width="wrap_content"
+            	    android:layout_height="wrap_content"
+            	    android:layout_alignParentBottom="true"
+            	    android:layout_alignParentLeft="true"
+            	    android:layout_gravity="left"
+            	    android:paddingLeft="32dp"
+            	    android:paddingRight="32dp"
+            	    android:text="@string/cancel" />
+                
+                
+            </RelativeLayout>
+        </LinearLayout>
+
+</ScrollView>
+        
+</merge>

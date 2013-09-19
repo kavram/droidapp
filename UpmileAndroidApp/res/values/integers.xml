@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="street_length" type="integer">80</item>
+    <item name="deal_description_length" type="integer">200</item>
+    <item name="deal_name_length" type="integer">100</item>
+    <item name="zipcode_length" type="integer">5</item>
+    <item name="city_length" type="integer">50</item>
+    <item name="merchant_name_length" type="integer">100</item>
+    <item name="deal_oldprice_length" type="integer">7</item>
+    <item name="deal_newprice_length" type="integer">7</item>
+    <item name="deal_exptime_length" type="integer">8</item>
+    <item name="deal_expdate_length" type="integer">10</item>
+    <item name="deal_locname_length" type="integer">100</item>
+</resources>

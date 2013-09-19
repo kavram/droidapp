@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:id="@+id/merchant_group">
+    	<item android:id="@+id/merchant_registration" android:title="@string/merchant_registration"></item>
+    	<item android:id="@+id/merchant_registration_check" android:title="Merchant Registration"></item>
+    	<item android:id="@+id/my_merchant_profile" android:title="@string/my_merchant_profile"></item>
+    	<item android:id="@+id/new_deal" android:title="@string/new_deal"></item>
+    	<item android:id="@+id/my_deals" android:title="@string/my_deals"></item>
+    </group>
+    
+    
+
+</menu>

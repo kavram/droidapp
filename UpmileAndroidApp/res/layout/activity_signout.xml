@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignoutActivity" >
+
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/button_sign_out" />
+
+    <Button
+        android:id="@+id/cancel_signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/signout"
+        android:layout_alignBottom="@+id/signout"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="60dp"
+        android:text="@string/button_cancel" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cancel_signout"
+        android:layout_alignLeft="@+id/signout"
+        android:layout_marginBottom="20dp"
+        android:text="@string/signout_confirm"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/map"
+        android:showAsAction="always"
+        android:title="@string/map"/>
+    <item
+        android:id="@+id/list"
+        android:showAsAction="always"
+        android:title="@string/list"/>
+    <item
+        android:id="@+id/signin"
+        android:showAsAction="always"
+        android:title="@string/signin"/>
+    <item
+        android:id="@+id/mysettings"
+        android:showAsAction="collapseActionView"
+        android:title="@string/mysettings"/>
+    <item android:id="@+id/signout" android:title="Sign Out" android:showAsAction="collapseActionView"></item>
+    <item android:id="@+id/menu_register" android:title="Register" android:showAsAction="never"></item>
+    
+    
+</menu>
