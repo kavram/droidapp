@@ -9,222 +9,101 @@ package com.upmile.android;
 
 public final class R {
     public static final class array {
-        public static final int states_array=0x7f070000;
+        public static final int states_array=0x7f060000;
     }
     public static final class attr {
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int cameraBearing=0x7f010001;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int cameraTargetLat=0x7f010002;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int cameraTargetLng=0x7f010003;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int cameraTilt=0x7f010004;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int cameraZoom=0x7f010005;
-        /** <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>none</code></td><td>0</td><td></td></tr>
-<tr><td><code>normal</code></td><td>1</td><td></td></tr>
-<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
-<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
-</table>
-         */
-        public static final int mapType=0x7f010000;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int uiCompass=0x7f010006;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int uiRotateGestures=0x7f010007;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int uiScrollGestures=0x7f010008;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int uiTiltGestures=0x7f010009;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int uiZoomControls=0x7f01000a;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int uiZoomGestures=0x7f01000b;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int useViewLifecycle=0x7f01000c;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int zOrderOnTop=0x7f01000d;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int image_divider=0x7f020001;
     }
     public static final class id {
-        public static final int bizreg_button=0x7f04001b;
-        public static final int bizreg_cancel_button=0x7f04001c;
-        public static final int bizreg_ok_button=0x7f04001d;
-        public static final int btnTakePic=0x7f04002e;
-        public static final int cancel_signout=0x7f04003e;
-        public static final int category=0x7f040014;
-        public static final int check_merchant_register_form=0x7f040006;
-        public static final int check_merchant_register_status=0x7f040004;
-        public static final int check_register_status_textview=0x7f040005;
-        public static final int checkreg_ok_button=0x7f040008;
-        public static final int city=0x7f040018;
-        public static final int deal_name=0x7f040022;
-        public static final int email=0x7f04000c;
-        public static final int list=0x7f040042;
-        public static final int location=0x7f040029;
-        public static final int location_name=0x7f04002a;
-        public static final int login=0x7f04000e;
-        public static final int login_form=0x7f04000b;
-        public static final int login_status=0x7f040009;
-        public static final int login_status_message=0x7f04000a;
-        public static final int map=0x7f040041;
-        public static final int menu_forgot_password=0x7f040040;
-        public static final int menu_register=0x7f040045;
-        public static final int menu_settings=0x7f04003f;
-        public static final int merchant_group=0x7f040046;
-        public static final int merchant_name=0x7f040013;
-        public static final int merchant_register_form=0x7f040012;
-        public static final int merchant_register_status=0x7f040010;
-        public static final int merchant_registration=0x7f040047;
-        public static final int merchant_registration_check=0x7f040048;
-        public static final int my_deals=0x7f04004b;
-        public static final int my_merchant_profile=0x7f040049;
-        public static final int mysettings=0x7f040044;
-        public static final int newDealPhotoHorView=0x7f04002f;
-        public static final int newDealPhotoLinearLayout=0x7f040030;
-        public static final int newDeal_status=0x7f04001e;
-        public static final int new_deal=0x7f04004a;
-        public static final int newdeal_addpics_menu=0x7f04004c;
-        public static final int newdeal_cancel_button=0x7f04002d;
-        public static final int newdeal_descr=0x7f040023;
-        public static final int newdeal_expdate=0x7f040028;
-        public static final int newdeal_exptime=0x7f040027;
-        public static final int newdeal_form=0x7f040020;
-        public static final int newdeal_newprice=0x7f040025;
-        public static final int newdeal_oldprice=0x7f040024;
-        public static final int newdeal_phone=0x7f04002b;
-        public static final int newdeal_photo_ok_btn=0x7f040031;
-        public static final int newdeal_picsView=0x7f040021;
-        public static final int newdeal_submit_button=0x7f04002c;
-        public static final int newdeal_textview=0x7f04001f;
-        public static final int none=0x7f040000;
-        public static final int normal=0x7f040001;
-        public static final int ok=0x7f04003b;
-        public static final int password=0x7f04000d;
-        public static final int phone=0x7f040016;
-        public static final int register_button=0x7f04003c;
-        public static final int register_confirm_password=0x7f04003a;
-        public static final int register_email=0x7f040038;
-        public static final int register_fname=0x7f040035;
-        public static final int register_form=0x7f040034;
-        public static final int register_lname=0x7f040036;
-        public static final int register_password=0x7f040039;
-        public static final int register_status=0x7f040032;
-        public static final int register_status_message=0x7f040033;
-        public static final int register_status_textview=0x7f040011;
-        public static final int regstatus=0x7f040037;
-        public static final int satellite=0x7f040002;
-        public static final int sign_in_button=0x7f04000f;
-        public static final int signin=0x7f040043;
-        public static final int signout=0x7f04003d;
-        public static final int state=0x7f040019;
-        public static final int status_textview=0x7f040007;
-        public static final int street=0x7f040017;
-        public static final int subcategory=0x7f040015;
-        public static final int terrain=0x7f040003;
-        public static final int textView1=0x7f040026;
-        public static final int zipcode=0x7f04001a;
+        public static final int bizreg_button=0x7f090017;
+        public static final int bizreg_cancel_button=0x7f090018;
+        public static final int bizreg_ok_button=0x7f090019;
+        public static final int btnTakePic=0x7f09002a;
+        public static final int cancel_signout=0x7f09003a;
+        public static final int category=0x7f090010;
+        public static final int check_merchant_register_form=0x7f090002;
+        public static final int check_merchant_register_status=0x7f090000;
+        public static final int check_register_status_textview=0x7f090001;
+        public static final int checkreg_ok_button=0x7f090004;
+        public static final int city=0x7f090014;
+        public static final int deal_name=0x7f09001e;
+        public static final int email=0x7f090008;
+        public static final int list=0x7f09003e;
+        public static final int location=0x7f090025;
+        public static final int location_name=0x7f090026;
+        public static final int login=0x7f09000a;
+        public static final int login_form=0x7f090007;
+        public static final int login_status=0x7f090005;
+        public static final int login_status_message=0x7f090006;
+        public static final int map=0x7f09003d;
+        public static final int menu_forgot_password=0x7f09003c;
+        public static final int menu_register=0x7f090041;
+        public static final int menu_settings=0x7f09003b;
+        public static final int merchant_group=0x7f090042;
+        public static final int merchant_name=0x7f09000f;
+        public static final int merchant_register_form=0x7f09000e;
+        public static final int merchant_register_status=0x7f09000c;
+        public static final int merchant_registration=0x7f090043;
+        public static final int merchant_registration_check=0x7f090044;
+        public static final int my_deals=0x7f090047;
+        public static final int my_merchant_profile=0x7f090045;
+        public static final int mysettings=0x7f090040;
+        public static final int newDealPhotoHorView=0x7f09002b;
+        public static final int newDealPhotoLinearLayout=0x7f09002c;
+        public static final int newDeal_status=0x7f09001a;
+        public static final int new_deal=0x7f090046;
+        public static final int newdeal_addpics_menu=0x7f090048;
+        public static final int newdeal_cancel_button=0x7f090029;
+        public static final int newdeal_descr=0x7f09001f;
+        public static final int newdeal_expdate=0x7f090024;
+        public static final int newdeal_exptime=0x7f090023;
+        public static final int newdeal_form=0x7f09001c;
+        public static final int newdeal_newprice=0x7f090021;
+        public static final int newdeal_oldprice=0x7f090020;
+        public static final int newdeal_phone=0x7f090027;
+        public static final int newdeal_photo_ok_btn=0x7f09002d;
+        public static final int newdeal_picsView=0x7f09001d;
+        public static final int newdeal_submit_button=0x7f090028;
+        public static final int newdeal_textview=0x7f09001b;
+        public static final int ok=0x7f090037;
+        public static final int password=0x7f090009;
+        public static final int phone=0x7f090012;
+        public static final int register_button=0x7f090038;
+        public static final int register_confirm_password=0x7f090036;
+        public static final int register_email=0x7f090034;
+        public static final int register_fname=0x7f090031;
+        public static final int register_form=0x7f090030;
+        public static final int register_lname=0x7f090032;
+        public static final int register_password=0x7f090035;
+        public static final int register_status=0x7f09002e;
+        public static final int register_status_message=0x7f09002f;
+        public static final int register_status_textview=0x7f09000d;
+        public static final int regstatus=0x7f090033;
+        public static final int sign_in_button=0x7f09000b;
+        public static final int signin=0x7f09003f;
+        public static final int signout=0x7f090039;
+        public static final int state=0x7f090015;
+        public static final int status_textview=0x7f090003;
+        public static final int street=0x7f090013;
+        public static final int subcategory=0x7f090011;
+        public static final int textView1=0x7f090022;
+        public static final int zipcode=0x7f090016;
     }
     public static final class integer {
-        public static final int city_length=0x7f060004;
-        public static final int deal_description_length=0x7f060001;
-        public static final int deal_expdate_length=0x7f060009;
-        public static final int deal_exptime_length=0x7f060008;
-        public static final int deal_locname_length=0x7f06000a;
-        public static final int deal_name_length=0x7f060002;
-        public static final int deal_newprice_length=0x7f060007;
-        public static final int deal_oldprice_length=0x7f060006;
-        public static final int merchant_name_length=0x7f060005;
-        public static final int street_length=0x7f060000;
-        public static final int zipcode_length=0x7f060003;
+        public static final int city_length=0x7f040004;
+        public static final int deal_description_length=0x7f040001;
+        public static final int deal_expdate_length=0x7f040009;
+        public static final int deal_exptime_length=0x7f040008;
+        public static final int deal_locname_length=0x7f04000a;
+        public static final int deal_name_length=0x7f040002;
+        public static final int deal_newprice_length=0x7f040007;
+        public static final int deal_oldprice_length=0x7f040006;
+        public static final int merchant_name_length=0x7f040005;
+        public static final int street_length=0x7f040000;
+        public static final int zipcode_length=0x7f040003;
     }
     public static final class layout {
         public static final int activity_check_merchant_registration=0x7f030000;
@@ -238,146 +117,103 @@ containing a value of this type.
         public static final int activity_signout=0x7f030008;
     }
     public static final class menu {
-        public static final int activity_check_merchant_registration=0x7f090000;
-        public static final int activity_login=0x7f090001;
-        public static final int activity_main=0x7f090002;
-        public static final int activity_merchant_registration=0x7f090003;
-        public static final int activity_my_settings=0x7f090004;
-        public static final int activity_new_deal=0x7f090005;
-        public static final int activity_new_deal_photo=0x7f090006;
-        public static final int activity_register=0x7f090007;
-        public static final int activity_signout=0x7f090008;
+        public static final int activity_check_merchant_registration=0x7f080000;
+        public static final int activity_login=0x7f080001;
+        public static final int activity_main=0x7f080002;
+        public static final int activity_merchant_registration=0x7f080003;
+        public static final int activity_my_settings=0x7f080004;
+        public static final int activity_new_deal=0x7f080005;
+        public static final int activity_new_deal_photo=0x7f080006;
+        public static final int activity_register=0x7f080007;
+        public static final int activity_signout=0x7f080008;
     }
     public static final class string {
-        public static final int action_sign_in_register=0x7f05003d;
-        public static final int action_sign_in_short=0x7f05003e;
-        public static final int add_deal_picture=0x7f050032;
-        public static final int app_name=0x7f05000b;
-        public static final int biz_reg=0x7f050011;
-        public static final int btnTakePicture=0x7f050035;
-        public static final int button_cancel=0x7f050048;
-        public static final int button_sign_out=0x7f050047;
-        public static final int cancel=0x7f05001c;
-        public static final int cannot=0x7f050036;
-        public static final int category=0x7f05001d;
-        public static final int check_merchant_reg_status_confirmed=0x7f050016;
-        public static final int check_merchant_reg_status_pending=0x7f050015;
-        public static final int city=0x7f050019;
-        /**  Button in confirmation dialog to enable Google Play services.  Clicking it
-        will direct user to application settings of Google Play services where they
-        can enable it [CHAR LIMIT=30] 
-         */
-        public static final int common_google_play_services_enable_button=0x7f050006;
-        /**  Message in confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_enable_text=0x7f050005;
-        /**  Title of confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_enable_title=0x7f050004;
-        /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=30] 
-         */
-        public static final int common_google_play_services_install_button=0x7f050003;
-        /**  (For phones) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_install_text_phone=0x7f050001;
-        /**  (For tablets) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_install_text_tablet=0x7f050002;
-        /**  Title of confirmation dialog informing user that they need to install
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_install_title=0x7f050000;
-        /**  Message in confirmation dialog informing user there is an unknow issue in Google Player
-        services [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_unknown_issue=0x7f050009;
-        /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=20] 
-         */
-        public static final int common_google_play_services_update_button=0x7f05000a;
-        /**  Message in confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_update_text=0x7f050008;
-        /**  Title of confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_update_title=0x7f050007;
-        public static final int date=0x7f05002d;
-        public static final int deal_expiration=0x7f05002a;
-        public static final int deal_picture=0x7f050031;
-        public static final int descr=0x7f050027;
-        public static final int email=0x7f05001f;
-        public static final int error_field_required=0x7f050044;
-        public static final int error_incorrect_password=0x7f050043;
-        public static final int error_invalid_email=0x7f050041;
-        public static final int error_invalid_password=0x7f050042;
-        public static final int error_newdeal_exprdate_notvalid=0x7f050030;
-        public static final int error_newdeal_exprtime_notvalid=0x7f05002f;
-        public static final int hello_world=0x7f050033;
-        public static final int images=0x7f050037;
-        public static final int list=0x7f05000d;
-        public static final int loading=0x7f050020;
-        public static final int location=0x7f05002b;
-        public static final int location_name=0x7f05002e;
-        public static final int login_failed=0x7f050046;
-        public static final int login_progress_signing_in=0x7f050040;
-        public static final int map=0x7f05000c;
-        public static final int menu_forgot_password=0x7f05003f;
-        public static final int menu_register=0x7f050045;
-        public static final int menu_settings=0x7f050010;
-        public static final int merchant_name=0x7f050017;
-        public static final int merchant_register_success=0x7f05005b;
-        public static final int merchant_registration=0x7f050021;
-        public static final int my_deals=0x7f050025;
-        public static final int my_merchant_profile=0x7f050022;
-        public static final int mysettings=0x7f05000f;
-        public static final int new_deal=0x7f050024;
-        public static final int new_price=0x7f050029;
-        public static final int ok=0x7f050038;
-        public static final int old_price=0x7f050028;
-        public static final int phone=0x7f05001e;
-        public static final int picture1=0x7f050039;
+        public static final int action_sign_in_register=0x7f050032;
+        public static final int action_sign_in_short=0x7f050033;
+        public static final int add_deal_picture=0x7f050027;
+        public static final int app_name=0x7f050000;
+        public static final int biz_reg=0x7f050006;
+        public static final int btnTakePicture=0x7f05002a;
+        public static final int button_cancel=0x7f05003d;
+        public static final int button_sign_out=0x7f05003c;
+        public static final int cancel=0x7f050011;
+        public static final int cannot=0x7f05002b;
+        public static final int category=0x7f050012;
+        public static final int check_merchant_reg_status_confirmed=0x7f05000b;
+        public static final int check_merchant_reg_status_pending=0x7f05000a;
+        public static final int city=0x7f05000e;
+        public static final int date=0x7f050022;
+        public static final int deal_expiration=0x7f05001f;
+        public static final int deal_picture=0x7f050026;
+        public static final int descr=0x7f05001c;
+        public static final int email=0x7f050014;
+        public static final int error_field_required=0x7f050039;
+        public static final int error_incorrect_password=0x7f050038;
+        public static final int error_invalid_email=0x7f050036;
+        public static final int error_invalid_password=0x7f050037;
+        public static final int error_newdeal_exprdate_notvalid=0x7f050025;
+        public static final int error_newdeal_exprtime_notvalid=0x7f050024;
+        public static final int hello_world=0x7f050028;
+        public static final int images=0x7f05002c;
+        public static final int list=0x7f050002;
+        public static final int loading=0x7f050015;
+        public static final int location=0x7f050020;
+        public static final int location_name=0x7f050023;
+        public static final int login_failed=0x7f05003b;
+        public static final int login_progress_signing_in=0x7f050035;
+        public static final int map=0x7f050001;
+        public static final int menu_forgot_password=0x7f050034;
+        public static final int menu_register=0x7f05003a;
+        public static final int menu_settings=0x7f050005;
+        public static final int merchant_name=0x7f05000c;
+        public static final int merchant_register_success=0x7f050050;
+        public static final int merchant_registration=0x7f050016;
+        public static final int my_deals=0x7f05001a;
+        public static final int my_merchant_profile=0x7f050017;
+        public static final int mysettings=0x7f050004;
+        public static final int new_deal=0x7f050019;
+        public static final int new_price=0x7f05001e;
+        public static final int ok=0x7f05002d;
+        public static final int old_price=0x7f05001d;
+        public static final int phone=0x7f050013;
+        public static final int picture1=0x7f05002e;
         /**  Strings related to login 
          */
-        public static final int prompt_email=0x7f05003b;
-        public static final int prompt_password=0x7f05003c;
-        public static final int register_action_register=0x7f050050;
-        public static final int register_error_email_exist=0x7f050058;
-        public static final int register_error_field_required=0x7f050057;
-        public static final int register_error_incorrect_password=0x7f050056;
-        public static final int register_error_invalid_email=0x7f050053;
-        public static final int register_error_invalid_password=0x7f050054;
-        public static final int register_error_password_dont_match=0x7f050055;
-        public static final int register_generic_error=0x7f050059;
-        public static final int register_menu_sign_in=0x7f050051;
-        public static final int register_ok_button=0x7f05005c;
-        public static final int register_progress_registering=0x7f050052;
-        public static final int register_prompt_confirm_password=0x7f05004f;
-        public static final int register_prompt_email=0x7f05004d;
+        public static final int prompt_email=0x7f050030;
+        public static final int prompt_password=0x7f050031;
+        public static final int register_action_register=0x7f050045;
+        public static final int register_error_email_exist=0x7f05004d;
+        public static final int register_error_field_required=0x7f05004c;
+        public static final int register_error_incorrect_password=0x7f05004b;
+        public static final int register_error_invalid_email=0x7f050048;
+        public static final int register_error_invalid_password=0x7f050049;
+        public static final int register_error_password_dont_match=0x7f05004a;
+        public static final int register_generic_error=0x7f05004e;
+        public static final int register_menu_sign_in=0x7f050046;
+        public static final int register_ok_button=0x7f050051;
+        public static final int register_progress_registering=0x7f050047;
+        public static final int register_prompt_confirm_password=0x7f050044;
+        public static final int register_prompt_email=0x7f050042;
         /**  Strings related to login 
          */
-        public static final int register_prompt_fname=0x7f05004b;
-        public static final int register_prompt_lname=0x7f05004c;
-        public static final int register_prompt_password=0x7f05004e;
-        public static final int register_success=0x7f05005a;
-        public static final int signin=0x7f05000e;
-        public static final int signout_confirm=0x7f050049;
-        public static final int street=0x7f050018;
-        public static final int submit=0x7f05001b;
-        public static final int time=0x7f05002c;
-        public static final int title_activity_check_merchant_registration=0x7f050023;
-        public static final int title_activity_login=0x7f05003a;
-        public static final int title_activity_merchant_registration=0x7f050014;
-        public static final int title_activity_my_settings=0x7f050013;
-        public static final int title_activity_new_deal=0x7f050026;
-        public static final int title_activity_new_deal_photo=0x7f050034;
-        public static final int title_activity_register=0x7f05004a;
-        public static final int title_activity_signout=0x7f050012;
-        public static final int zipcode=0x7f05001a;
+        public static final int register_prompt_fname=0x7f050040;
+        public static final int register_prompt_lname=0x7f050041;
+        public static final int register_prompt_password=0x7f050043;
+        public static final int register_success=0x7f05004f;
+        public static final int signin=0x7f050003;
+        public static final int signout_confirm=0x7f05003e;
+        public static final int street=0x7f05000d;
+        public static final int submit=0x7f050010;
+        public static final int time=0x7f050021;
+        public static final int title_activity_check_merchant_registration=0x7f050018;
+        public static final int title_activity_login=0x7f05002f;
+        public static final int title_activity_merchant_registration=0x7f050009;
+        public static final int title_activity_my_settings=0x7f050008;
+        public static final int title_activity_new_deal=0x7f05001b;
+        public static final int title_activity_new_deal_photo=0x7f050029;
+        public static final int title_activity_register=0x7f05003f;
+        public static final int title_activity_signout=0x7f050007;
+        public static final int zipcode=0x7f05000f;
     }
     public static final class style {
         /** 
@@ -403,256 +239,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
-        public static final int LoginFormContainer=0x7f080002;
+        public static final int AppTheme=0x7f070001;
+        public static final int LoginFormContainer=0x7f070002;
     }
-    public static final class styleable {
-        /** Attributes that can be used with a MapAttrs.
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MapAttrs_cameraBearing com.upmile.android:cameraBearing}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTargetLat com.upmile.android:cameraTargetLat}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTargetLng com.upmile.android:cameraTargetLng}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTilt com.upmile.android:cameraTilt}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraZoom com.upmile.android:cameraZoom}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_mapType com.upmile.android:mapType}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiCompass com.upmile.android:uiCompass}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiRotateGestures com.upmile.android:uiRotateGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiScrollGestures com.upmile.android:uiScrollGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiTiltGestures com.upmile.android:uiTiltGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiZoomControls com.upmile.android:uiZoomControls}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiZoomGestures com.upmile.android:uiZoomGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_useViewLifecycle com.upmile.android:useViewLifecycle}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_zOrderOnTop com.upmile.android:zOrderOnTop}</code></td><td></td></tr>
-           </table>
-           @see #MapAttrs_cameraBearing
-           @see #MapAttrs_cameraTargetLat
-           @see #MapAttrs_cameraTargetLng
-           @see #MapAttrs_cameraTilt
-           @see #MapAttrs_cameraZoom
-           @see #MapAttrs_mapType
-           @see #MapAttrs_uiCompass
-           @see #MapAttrs_uiRotateGestures
-           @see #MapAttrs_uiScrollGestures
-           @see #MapAttrs_uiTiltGestures
-           @see #MapAttrs_uiZoomControls
-           @see #MapAttrs_uiZoomGestures
-           @see #MapAttrs_useViewLifecycle
-           @see #MapAttrs_zOrderOnTop
-         */
-        public static final int[] MapAttrs = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
-            0x7f01000c, 0x7f01000d
-        };
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#cameraBearing}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:cameraBearing
-        */
-        public static final int MapAttrs_cameraBearing = 1;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#cameraTargetLat}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:cameraTargetLat
-        */
-        public static final int MapAttrs_cameraTargetLat = 2;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#cameraTargetLng}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:cameraTargetLng
-        */
-        public static final int MapAttrs_cameraTargetLng = 3;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#cameraTilt}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:cameraTilt
-        */
-        public static final int MapAttrs_cameraTilt = 4;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#cameraZoom}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:cameraZoom
-        */
-        public static final int MapAttrs_cameraZoom = 5;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#mapType}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>none</code></td><td>0</td><td></td></tr>
-<tr><td><code>normal</code></td><td>1</td><td></td></tr>
-<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
-<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
-</table>
-          @attr name android:mapType
-        */
-        public static final int MapAttrs_mapType = 0;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#uiCompass}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:uiCompass
-        */
-        public static final int MapAttrs_uiCompass = 6;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#uiRotateGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:uiRotateGestures
-        */
-        public static final int MapAttrs_uiRotateGestures = 7;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#uiScrollGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:uiScrollGestures
-        */
-        public static final int MapAttrs_uiScrollGestures = 8;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#uiTiltGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:uiTiltGestures
-        */
-        public static final int MapAttrs_uiTiltGestures = 9;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#uiZoomControls}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:uiZoomControls
-        */
-        public static final int MapAttrs_uiZoomControls = 10;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#uiZoomGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:uiZoomGestures
-        */
-        public static final int MapAttrs_uiZoomGestures = 11;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#useViewLifecycle}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:useViewLifecycle
-        */
-        public static final int MapAttrs_useViewLifecycle = 12;
-        /**
-          <p>This symbol is the offset where the {@link com.upmile.android.R.attr#zOrderOnTop}
-          attribute's value can be found in the {@link #MapAttrs} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:zOrderOnTop
-        */
-        public static final int MapAttrs_zOrderOnTop = 13;
-    };
 }

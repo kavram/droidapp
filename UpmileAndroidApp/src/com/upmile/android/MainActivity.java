@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.FragmentActivity;
-import com.google.android.gms.maps.SupportMapFragment;
+//import com.google.android.gms.maps.SupportMapFragment;
 
 public class MainActivity extends FragmentActivity {
 
