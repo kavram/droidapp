@@ -44,6 +44,11 @@ public class HttpPostHelper {
 		val.accumulate("value", value); 
 		params.accumulate(name, val);
 	}
+
+	public void addSpParameter(String name, Object value) throws Exception{
+		params.accumulate(name, value);
+	}
+	
 	
 	public JSONArray post() throws Exception{
 		JSONArray ar = new JSONArray();
@@ -53,7 +58,7 @@ public class HttpPostHelper {
 		se.setContentType("application/json; charset=utf-8");
 		se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json; charset=utf-8"));
 
-		URI uri = new URI("http://192.168.1.47:8081/content");
+		URI uri = new URI("http://10.0.2.2:8080/content");
 		HttpPost httpPost = new HttpPost(uri);
 		httpPost.setEntity(se);
 		HttpResponse hr = hc.execute(httpPost); // httpPost

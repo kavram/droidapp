@@ -5,11 +5,13 @@
     tools:context=".MainActivity" >
 
     
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ListView
+        android:id="@+id/deals_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
+    
 
 </RelativeLayout>
 
