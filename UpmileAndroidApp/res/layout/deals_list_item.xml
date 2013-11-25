@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent" 
+    android:orientation="vertical">
+  
     <TextView
-        android:id="@id/android:text1"
+        android:id="@+id/biz_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" />
-</RelativeLayout>
+     
+    
+  <HorizontalScrollView 
+    android:id="@+id/hsview"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
+    android:stretchMode="none"
+    android:gravity="center" >
+    	<TableRow
+    		android:id="@+id/trow"
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content"
+    		 >
+    			<TextView
+        			android:id="@+id/dealview"
+				 />
+    	    			
+    	    
+    	</TableRow>
+      
+</HorizontalScrollView>
+     
+    
+</LinearLayout>

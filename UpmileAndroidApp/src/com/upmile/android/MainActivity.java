@@ -20,12 +20,12 @@ import android.support.v4.app.FragmentActivity;
 //import com.google.android.gms.maps.SupportMapFragment;
 
 
-public class MainActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<List<String>> {
+public class MainActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<List<DealBean>> {
 
 	
 	private GetDealsTask getDealsTask;
 	private ListView dealsListView;
-	private ArrayAdapter<String> adapter;
+	private DealsAdapter adapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 		setContentView(R.layout.activity_main);
 		
 		dealsListView = (ListView) findViewById(R.id.deals_list);
-		adapter = new ArrayAdapter<String>(this.getApplicationContext(), android.R.layout.simple_list_item_1);
+		adapter = new DealsAdapter(this.getApplicationContext());
 		dealsListView.setAdapter(adapter);
 		getLoaderManager().initLoader(0, null, this);
 	}
@@ -131,19 +131,19 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 	}
 
 	@Override
-	public Loader<List<String>> onCreateLoader(int arg0, Bundle arg1) {
+	public Loader<List<DealBean>> onCreateLoader(int arg0, Bundle arg1) {
 		
 		return new DealsLoader(this);
 	}
 
 	@Override
-	public void onLoadFinished(Loader<List<String>> loader, List<String> data) {
+	public void onLoadFinished(Loader<List<DealBean>> loader, List<DealBean> data) {
 		adapter.addAll(data);
 		
 	}
 
 	@Override
-	public void onLoaderReset(Loader<List<String>> arg0) {
+	public void onLoaderReset(Loader<List<DealBean>> arg0) {
 		// TODO Auto-generated method stub
 		
 	}	

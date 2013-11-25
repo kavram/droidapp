@@ -180,6 +180,8 @@ containing a value of this type.
         public static final int image_divider=0x7f02001d;
     }
     public static final class id {
+        public static final int biz_deal_view=0x7f050045;
+        public static final int biz_view=0x7f050041;
         public static final int bizreg_button=0x7f05001d;
         public static final int bizreg_cancel_button=0x7f05001e;
         public static final int bizreg_ok_button=0x7f05001f;
@@ -193,33 +195,35 @@ containing a value of this type.
         public static final int city=0x7f05001a;
         public static final int deal_name=0x7f050024;
         public static final int deals_list=0x7f050011;
+        public static final int dealview=0x7f050044;
         public static final int email=0x7f05000d;
+        public static final int hsview=0x7f050042;
         public static final int hybrid=0x7f050004;
-        public static final int list=0x7f050044;
+        public static final int list=0x7f050049;
         public static final int location=0x7f05002b;
         public static final int location_name=0x7f05002c;
         public static final int login=0x7f05000f;
         public static final int login_form=0x7f05000c;
         public static final int login_status=0x7f05000a;
         public static final int login_status_message=0x7f05000b;
-        public static final int map=0x7f050043;
-        public static final int menu_forgot_password=0x7f050042;
-        public static final int menu_register=0x7f050047;
-        public static final int menu_settings=0x7f050041;
-        public static final int merchant_group=0x7f050048;
+        public static final int map=0x7f050048;
+        public static final int menu_forgot_password=0x7f050047;
+        public static final int menu_register=0x7f05004c;
+        public static final int menu_settings=0x7f050046;
+        public static final int merchant_group=0x7f05004d;
         public static final int merchant_name=0x7f050015;
         public static final int merchant_register_form=0x7f050014;
         public static final int merchant_register_status=0x7f050012;
-        public static final int merchant_registration=0x7f050049;
-        public static final int merchant_registration_check=0x7f05004a;
-        public static final int my_deals=0x7f05004d;
-        public static final int my_merchant_profile=0x7f05004b;
-        public static final int mysettings=0x7f050046;
+        public static final int merchant_registration=0x7f05004e;
+        public static final int merchant_registration_check=0x7f05004f;
+        public static final int my_deals=0x7f050052;
+        public static final int my_merchant_profile=0x7f050050;
+        public static final int mysettings=0x7f05004b;
         public static final int newDealPhotoHorView=0x7f050031;
         public static final int newDealPhotoLinearLayout=0x7f050032;
         public static final int newDeal_status=0x7f050020;
-        public static final int new_deal=0x7f05004c;
-        public static final int newdeal_addpics_menu=0x7f05004e;
+        public static final int new_deal=0x7f050051;
+        public static final int newdeal_addpics_menu=0x7f050053;
         public static final int newdeal_cancel_button=0x7f05002f;
         public static final int newdeal_descr=0x7f050025;
         public static final int newdeal_expdate=0x7f05002a;
@@ -250,7 +254,7 @@ containing a value of this type.
         public static final int regstatus=0x7f050039;
         public static final int satellite=0x7f050002;
         public static final int sign_in_button=0x7f050010;
-        public static final int signin=0x7f050045;
+        public static final int signin=0x7f05004a;
         public static final int signout=0x7f05003f;
         public static final int state=0x7f05001b;
         public static final int status_textview=0x7f050008;
@@ -258,6 +262,7 @@ containing a value of this type.
         public static final int subcategory=0x7f050017;
         public static final int terrain=0x7f050003;
         public static final int textView1=0x7f050028;
+        public static final int trow=0x7f050043;
         public static final int zipcode=0x7f05001c;
     }
     public static final class integer {
@@ -284,6 +289,7 @@ containing a value of this type.
         public static final int activity_register=0x7f030007;
         public static final int activity_signout=0x7f030008;
         public static final int deals_list_item=0x7f030009;
+        public static final int deals_list_item_layout=0x7f03000a;
     }
     public static final class menu {
         public static final int activity_check_merchant_registration=0x7f0a0000;
