@@ -1,15 +1,17 @@
 package com.upmile.android;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DealBean {
 
 	private String biz;
-	private List<String> deals;
+	private String phone;
+	private List<Deal> deals;
 	
 	
 	public DealBean(){
-		
+	 deals = new ArrayList<Deal>();	
 	}
 	
 	public String getBiz() {
@@ -18,11 +20,19 @@ public class DealBean {
 	public void setBiz(String biz) {
 		this.biz = biz;
 	}
-	public List<String> getDeals() {
+	public List<Deal> getDeals() {
 		return deals;
 	}
-	public void setDeals(List<String> deals) {
+	public void setDeals(List<Deal> deals) {
 		this.deals = deals;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	

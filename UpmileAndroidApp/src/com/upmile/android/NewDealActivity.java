@@ -384,7 +384,7 @@ public class NewDealActivity extends Activity {
 		protected Boolean doInBackground(Void... params) {
 			boolean ret = false;
 			try {
-				JSONObject user = FileHelper.getUser(getApplicationContext());
+				JSONObject user = FileHelper.getData(FileHelper.USER, getApplicationContext());
 				HttpFormSubmitHelper http = new HttpFormSubmitHelper("/newdeal");
 				if(dealPics != null && dealPics.size() > 0){
 					Integer name = Integer.valueOf(1);
@@ -423,7 +423,7 @@ public class NewDealActivity extends Activity {
 				String str = new String(buffer);
 				if(str.indexOf("submit_status=\"success\"") != -1){
 						user.put("biz_owner", "3");
-						FileHelper.saveUser(user.toString(), getApplicationContext());
+						FileHelper.saveData(FileHelper.USER, user.toString(), getApplicationContext());
 						ret = true;
 				}
 			} catch (Exception e) {
@@ -455,7 +455,7 @@ public class NewDealActivity extends Activity {
 		protected Boolean doInBackground(Void... params) {
 			boolean status = false;
 			try {
-				JSONObject user = FileHelper.getUser(getApplicationContext());
+				JSONObject user = FileHelper.getData(FileHelper.USER, getApplicationContext());
 				HttpPostHelper hpe = new HttpPostHelper(23);
 				hpe.addParameter("owner_id", user.getString("id"));
 				hpe.addParameter("uuid", user.getString("uuid"));

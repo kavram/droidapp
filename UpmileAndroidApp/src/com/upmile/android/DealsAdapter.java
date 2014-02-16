@@ -6,8 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.TableRow;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DealsAdapter extends ArrayAdapter<DealBean> {
@@ -31,21 +30,23 @@ public class DealsAdapter extends ArrayAdapter<DealBean> {
         }
 
         DealBean item = getItem(position);
-        TextView bizView = (TextView) view.findViewById(R.id.biz_view);
-        bizView.setText(item.getBiz());
-        TableRow tRow = (TableRow) view.findViewById(R.id.trow);
-        for(String deal : item.getDeals()){
-        	TextView dealView = new TextView(this.getContext());
-        	dealView.setPadding(3, 0, 3, 1);
-        	dealView.setText(deal);
-        	tRow.addView(dealView);
+        TextView bizNameView = (TextView) view.findViewById(R.id.biz_name);
+        bizNameView.setText(item.getBiz());
+        TextView bizTelView = (TextView) view.findViewById(R.id.biz_telephone);
+        bizTelView.setText(item.getPhone());
+        LinearLayout hsView = (LinearLayout) view.findViewById(R.id.dealsrow);
+        for(Deal deal : item.getDeals()){
+        	View dealView = mInflater.inflate(R.layout.deal_view, parent, false);
+        	TextView dealTView = (TextView) dealView.findViewById(R.id.deal_name);
+        	dealTView.setText(deal.getName());
+        	TextView dealExp = (TextView) dealView.findViewById(R.id.deal_expiration);
+        	dealExp.setText(deal.getExpiration().toString());
+            TextView dv = new TextView(this.getContext());
+            dv.setPadding(3, 0, 3, 1);
+            dv.setText(deal.getName());
+            hsView.addView(dealView);
         }
-        //GridView gView = (GridView) view.findViewById(R.id.gridview);
-        //gView.setNumColumns(item.getDeals().size());
-        //ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getContext(), R.layout.deals_list_item_layout, R.id.biz_deal_view, item.getDeals());
         
-        //gView.setAdapter(adapter2);
-        //dListView.setVisibility(ListView.VISIBLE);
         return view;
 	} 
 	

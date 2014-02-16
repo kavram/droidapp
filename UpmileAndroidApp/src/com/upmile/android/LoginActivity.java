@@ -57,7 +57,6 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_login);
 		setupActionBar();
 
@@ -93,6 +92,9 @@ public class LoginActivity extends Activity {
 				});
 	}
 
+	
+	
+	
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
 	 */
@@ -110,10 +112,20 @@ public class LoginActivity extends Activity {
 		case android.R.id.home:
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
+		case R.id.menu_register:
+			startRegisterActivity();
+			return true;
+			
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
+	private void startRegisterActivity() {
+		Intent intent = new Intent(this, RegisterActivity.class);
+		startActivity(intent);
+	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -245,7 +257,7 @@ public class LoginActivity extends Activity {
 			showProgress(false);
 			if (success) {
 				try {
-					FileHelper.saveUser(ret.getJSONObject("nodes").toString(), getApplicationContext());
+					FileHelper.saveData(FileHelper.USER, ret.getJSONObject("nodes").toString(), getApplicationContext());
 					Intent intent = new Intent(la, MainActivity.class);
 					startActivity(intent);
 				} catch (JSONException e) {

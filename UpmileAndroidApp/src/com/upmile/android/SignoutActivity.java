@@ -51,7 +51,7 @@ public class SignoutActivity extends Activity {
 	}
 	
 	private void handleSignout() {
-		FileHelper.removeUser(getApplicationContext());
+		FileHelper.removeData(FileHelper.USER, getApplicationContext());
 		startMainActivity();
 	}
 

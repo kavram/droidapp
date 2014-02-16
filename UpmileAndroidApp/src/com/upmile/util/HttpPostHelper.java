@@ -20,6 +20,8 @@ import android.content.ContentValues;
 
 public class HttpPostHelper {
 
+	public final static String POST_DOMAIN = "http://10.0.2.2:8080/";
+	
 	private JSONObject oper;
 	private JSONObject params;
 	private JSONArray fields;
@@ -58,7 +60,7 @@ public class HttpPostHelper {
 		se.setContentType("application/json; charset=utf-8");
 		se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json; charset=utf-8"));
 
-		URI uri = new URI("http://10.0.2.2:8080/content");
+		URI uri = new URI(POST_DOMAIN + "content");
 		HttpPost httpPost = new HttpPost(uri);
 		httpPost.setEntity(se);
 		HttpResponse hr = hc.execute(httpPost); // httpPost

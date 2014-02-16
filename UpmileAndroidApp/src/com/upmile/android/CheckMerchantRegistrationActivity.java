@@ -46,7 +46,7 @@ public class CheckMerchantRegistrationActivity extends Activity {
 					@Override
 					public void onClick(View view) {
 						thisActivity.finish();
-						Intent intent = new Intent(thisActivity, MySettingsActivity.class);
+						Intent intent = new Intent(thisActivity, MainActivity.class);
 						startActivity(intent);
 					}
 				});
@@ -113,20 +113,32 @@ public class CheckMerchantRegistrationActivity extends Activity {
 	}
 
 	public class CheckMerchantRegistrationTask extends AsyncTask<Void, Void, Boolean> {
-		private JSONObject ret = null; 
+		private JSONObject retUser = null; 
+		private JSONObject retBiz = null;
 		
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			boolean status = false;
 			try {
-				JSONObject user = FileHelper.getUser(getApplicationContext());
+				JSONObject user = FileHelper.getData(FileHelper.USER, getApplicationContext());
 				HttpPostHelper hpe = new HttpPostHelper(9);
 				hpe.addParameter("id", user.getString("id"));
 				hpe.addParameter("uuid", user.getString("uuid"));
 				JSONArray ar = hpe.post();
 				if(ar.length() > 0){
-					ret = ar.getJSONObject(0);
+					retUser = ar.getJSONObject(0).getJSONObject("nodes");
 					status = true;
+					if(retUser.getString("status").equals("1")){
+						FileHelper.saveData(FileHelper.USER, retUser.toString(), getApplicationContext());
+						hpe = new HttpPostHelper(23);
+						hpe.addParameter("owner_id", user.getString("id"));
+						ar = hpe.post();
+						if(ar.length() > 0){
+							retBiz = ar.getJSONObject(0).getJSONObject("nodes");
+							if(retBiz.getString("status").equals("1"))
+								FileHelper.saveData(FileHelper.BIZ, retBiz.toString(), getApplicationContext());
+						}
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -143,11 +155,13 @@ public class CheckMerchantRegistrationActivity extends Activity {
 			okButton.setVisibility(View.VISIBLE);
 			if (success) {
 				try {
-					if(ret.getJSONObject("nodes").getString("biz_owner").equals("3")){
-						mStatusTextView.setText(getString(R.string.check_merchant_reg_status_pending));
-					}else if(ret.getJSONObject("nodes").getString("biz_owner").equals("2")){
-						mStatusTextView.setText(getString(R.string.check_merchant_reg_status_confirmed));
-						FileHelper.saveUser(ret.getJSONObject("nodes").toString(), getApplicationContext());
+					if(retUser.getString("status").equals("0")){
+						mStatusTextView.setText(getString(R.string.user_email_confirm));
+					}else if(retUser.getString("status").equals("1") && retBiz != null){
+						if(retBiz.getString("status").equals("0"))
+							mStatusTextView.setText(getString(R.string.check_merchant_reg_status_pending));
+						else if(retBiz.getString("status").equals("1"))
+							mStatusTextView.setText(getString(R.string.merchant_register_success));
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();

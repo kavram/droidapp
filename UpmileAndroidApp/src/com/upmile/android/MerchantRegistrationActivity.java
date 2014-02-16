@@ -49,6 +49,13 @@ public class MerchantRegistrationActivity extends Activity {
 	private String city;
 	private State state;
 	private String zipcode;
+	private String mFName;
+	private String mLName;
+
+	// UI references.
+	private EditText mFNameView;
+	private EditText mLNameView;
+	
 	
 	private EditText merchantNameView;
 	private EditText phoneView;
@@ -76,12 +83,12 @@ public class MerchantRegistrationActivity extends Activity {
 		thisActivity = this;
 		View regForm = findViewById(R.id.merchant_register_form);
 		regForm.setVisibility(View.INVISIBLE);
-		Spinner spinner = (Spinner) findViewById(R.id.state);
+		stateSpinner = (Spinner) findViewById(R.id.reg_state);
 		ArrayAdapter<State> arStates = new ArrayAdapter<State>(thisActivity, android.R.layout.simple_spinner_item);
 		for(State st : State.getStates())
 			arStates.add(st);
 		arStates.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(arStates);
+		stateSpinner.setAdapter(arStates);
 		StateSpinnerListener ssl = new StateSpinnerListener(
 			new StateSpinnerListener.OnStateSelectedHandler() {
 				@Override
@@ -90,7 +97,7 @@ public class MerchantRegistrationActivity extends Activity {
 				}
 			}
 		);
-		spinner.setOnItemSelectedListener(ssl);
+		stateSpinner.setOnItemSelectedListener(ssl);
 		setupActionBar();
 		setSelCategory(null);
 		setSelSubCategory(null);
@@ -121,7 +128,10 @@ public class MerchantRegistrationActivity extends Activity {
 		streetView = (EditText) findViewById(R.id.street);
 		cityView = (EditText) findViewById(R.id.city);
 		zipcodeView = (EditText) findViewById(R.id.zipcode);
-		stateSpinner = (Spinner) findViewById(R.id.state);
+		stateSpinner = (Spinner) findViewById(R.id.reg_state);
+		mFNameView = (EditText) findViewById(R.id.owner_fname);
+		mLNameView = (EditText) findViewById(R.id.owner_lname);
+		
 		
 		regButton.setOnClickListener(
 				new View.OnClickListener() {
@@ -141,6 +151,16 @@ public class MerchantRegistrationActivity extends Activity {
 						startActivity(intent);
 					}
 				});
+		okButton.setOnClickListener(
+				new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						thisActivity.finish();
+						Intent intent = new Intent(thisActivity, MainActivity.class);
+						startActivity(intent);
+					}
+				});
+
 		mRegisterFormView.setVisibility(View.VISIBLE);
 	}
 	
@@ -170,10 +190,20 @@ public class MerchantRegistrationActivity extends Activity {
 		city = cityView.getText().toString();
 		//state = stateView.getText().toString();
 		zipcode = zipcodeView.getText().toString();
+		mFName = mFNameView.getText().toString();
+		mLName = mLNameView.getText().toString();
 		boolean cancel = false;
 		View focusView = null;
 
-		if (TextUtils.isEmpty(merchantName)) {
+		if (TextUtils.isEmpty(mFName)) {
+			mFNameView.setError(getString(R.string.error_field_required));
+			focusView = mFNameView;
+			cancel = true;
+		}else if (TextUtils.isEmpty(mLName)) {
+			mLNameView.setError(getString(R.string.error_field_required));
+			focusView = mLNameView;
+			cancel = true;
+		}else if (TextUtils.isEmpty(merchantName)) {
 			merchantNameView.setError(getString(R.string.error_field_required));
 			focusView = merchantNameView;
 			cancel = true;
@@ -306,40 +336,104 @@ public class MerchantRegistrationActivity extends Activity {
 	}
 
 	public class SubmitMerchantRegistrationTask extends AsyncTask<Void, Void, Boolean> {
-
+		private boolean emailExist = false;
+		
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
 			boolean ret = false;
 			try {
-				JSONObject user = FileHelper.getUser(getApplicationContext());
-				HttpFormSubmitHelper http = new HttpFormSubmitHelper("/newbiz");
-				http.addStringParameter("owner_id", user.getString("id"));
-				http.addStringParameter("uuid", user.getString("uuid"));
-				http.addStringParameter("name", merchantName);
-				http.addStringParameter("category_id", selCategory.getId());
-				http.addStringParameter("subcategory_id", selSubCategory.getId());
-				http.addStringParameter("phone", phone);
-				http.addStringParameter("email", email);
-				http.addStringParameter("street", street);
-				http.addStringParameter("city", city);
-				http.addStringParameter("state", state.getLabel());
-				http.addStringParameter("zipcode", zipcode);
-				HttpResponse resp = http.post();
-				HttpEntity he = resp.getEntity();
-				char[] buffer = new char[(int) he.getContentLength()];
-				InputStreamReader isr = new InputStreamReader(he.getContent());
-				isr.read(buffer);
-				String str = new String(buffer);
-				if(str.indexOf("submit_status=\"success\"") != -1){
-						user.put("biz_owner", "3");
-						FileHelper.saveUser(user.toString(), getApplicationContext());
+				JSONObject user = insertUser();
+				if(user == null){
+					emailExist = true;
+					return false;
+				}
+				HttpPostHelper post = new HttpPostHelper(28);
+				post.addParameter("zipcode", zipcode);
+				JSONArray rez = post.post();
+				if(rez.length() > 0){
+					JSONObject coor = rez.getJSONObject(0);
+					post = new HttpPostHelper(19);
+					JSONArray locs = new JSONArray();
+					JSONObject loc = new JSONObject();
+					JSONObject flds = new JSONObject();
+					flds.accumulate("owner_id", user.getString("id"));
+					flds.accumulate("uuid", user.getString("uuid"));
+					flds.accumulate("name", merchantName);
+					flds.accumulate("category_id", selCategory.getId());
+					flds.accumulate("subcategory_id", selSubCategory.getId());
+					flds.accumulate("phone", phone);
+					flds.accumulate("email", email);
+					loc.accumulate("street", street);
+					loc.accumulate("city", city);
+					loc.accumulate("state", state.getLabel());
+					loc.accumulate("zipcode", zipcode);
+					loc.accumulate("latitude", coor.getJSONObject("nodes").getString("latitude"));
+					loc.accumulate("longitude", coor.getJSONObject("nodes").getString("longitude"));
+					locs.put(loc);
+					flds.put("locations", locs);
+					post.addFields(flds);
+					rez = post.post();
+					if(rez.length() > 0){
+						JSONObject biz = rez.getJSONObject(0).getJSONObject("nodes");
+						FileHelper.saveData(FileHelper.BIZ, biz.toString(), getApplicationContext());
 						ret = true;
+					}
 				}
 			} catch (Exception e) {
 				
 			}
 			return ret;
 		}
+
+	private void showBizInsertConfirmation(){
+		mFNameView.setVisibility(View.GONE);
+		mLNameView.setVisibility(View.GONE);
+		merchantNameView.setVisibility(View.GONE);
+		phoneView.setVisibility(View.GONE);
+		emailView.setVisibility(View.GONE);
+		streetView.setVisibility(View.GONE);
+		cityView.setVisibility(View.GONE);
+		stateSpinner.setVisibility(View.GONE);
+		categoriesSpinner.setVisibility(View.GONE);
+		subCategoriesSpinner.setVisibility(View.GONE);
+		zipcodeView.setVisibility(View.GONE);
+		regButton.setVisibility(View.GONE);
+		cancelButton.setVisibility(View.GONE);
+		okButton.setVisibility(View.VISIBLE);
+		mRegisterStatusView.setVisibility(View.VISIBLE);
+		mRegisterStatusView.setText("Your merchant account has been created. We sent you an email to confirm your registration.");
+		
+	}
+		
+	private JSONObject insertUser(){	
+		JSONObject user = null;
+		try {
+			//check email for dupe
+			JSONObject flds = new JSONObject();
+			HttpPostHelper hpe = new HttpPostHelper(12);
+			hpe.addParameter("email", email);
+			JSONArray resp = hpe.post();
+			if(resp.length() > 0){
+				return null;
+			}
+			//insert user
+			hpe = new HttpPostHelper(8);
+			flds.accumulate("first_name", mFName);
+			flds.accumulate("last_name", mLName);
+			flds.accumulate("email", email);
+			hpe.addFields(flds);
+			JSONArray ar = hpe.post();
+			if(ar.length() > 0){
+				JSONObject rep = ar.getJSONObject(0);
+				if(rep.has("nodes") && rep.getJSONObject("nodes").has("id")){
+					user = rep.getJSONObject("nodes");
+					FileHelper.saveData(FileHelper.USER, user.toString(), getApplicationContext());
+				}
+			}
+		} catch (Exception e) {
+		}
+		return user;
+	}
 		
 		@Override
 		protected void onPostExecute(final Boolean success) {
@@ -348,25 +442,40 @@ public class MerchantRegistrationActivity extends Activity {
 			if(success) {
 				mRegisterStatusView.setVisibility(View.VISIBLE);
 				mRegisterStatusView.setText(getString(R.string.merchant_register_success));
+				mFNameView.setVisibility(View.GONE);
+				mLNameView.setVisibility(View.GONE);
 				merchantNameView.setVisibility(View.GONE);
 				phoneView.setVisibility(View.GONE);
 				emailView.setVisibility(View.GONE);
 				streetView.setVisibility(View.GONE);
 				cityView.setVisibility(View.GONE);
-				zipcodeView.setVisibility(View.GONE);
 				stateSpinner.setVisibility(View.GONE);
 				categoriesSpinner.setVisibility(View.GONE);
 				subCategoriesSpinner.setVisibility(View.GONE);
+				zipcodeView.setVisibility(View.GONE);
 				regButton.setVisibility(View.GONE);
-				okButton.setVisibility(View.VISIBLE);
 				cancelButton.setVisibility(View.GONE);
+				okButton.setVisibility(View.VISIBLE);
 			} else {
-
+				if(emailExist){
+					emailView.setError(getString(R.string.register_error_email_exist));
+					emailView.requestFocus();
+				}
 			}
 		}
 		
 		
 	}
+	
+	@Override
+	protected void onStop(){
+		super.onStop();
+		if(loadCategoriesTask != null)
+			loadCategoriesTask.cancel(true);
+		if(mRegisterTask != null)
+			mRegisterTask.cancel(true);
+	}
+
 	
 	public class LoadCategoriesTask extends AsyncTask<Void, Void, Boolean> {
 		private JSONArray jsonCategories = null;

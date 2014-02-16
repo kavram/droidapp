@@ -1,22 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item
-        android:id="@+id/map"
-        android:showAsAction="always"
-        android:title="@string/map"/>
-    <item
-        android:id="@+id/list"
-        android:showAsAction="always"
-        android:title="@string/list"/>
-    <item
-        android:id="@+id/signin"
-        android:showAsAction="always"
-        android:title="@string/signin"/>
-    <item
-        android:id="@+id/mysettings"
-        android:showAsAction="collapseActionView"
-        android:title="@string/mysettings"/>
-    <item android:id="@+id/signout" android:title="Sign Out" android:showAsAction="collapseActionView"></item>
-    <item android:id="@+id/menu_register" android:title="Register" android:showAsAction="never"></item>
+    <item android:id="@+id/merchant_registration" android:title="@string/merchant_registration" android:enabled="true" android:showAsAction="ifRoom" android:visible="true"></item>
+    <item android:id="@+id/merchant_reg_check" android:visible="true" android:showAsAction="ifRoom" android:enabled="true" android:title="@string/check_my_reg"></item>
+    <item android:id="@+id/new_deal" android:title="@string/new_deal" android:visible="true" android:showAsAction="always" android:enabled="true"></item>
+    <item android:id="@+id/my_deals" android:title="@string/my_deals" android:visible="true" android:showAsAction="ifRoom" android:enabled="true"></item>
+    <item android:id="@+id/my_merchant_profile" android:title="@string/my_merchant_profile" android:visible="true" android:showAsAction="ifRoom" android:enabled="true"></item>
     
     
 </menu>

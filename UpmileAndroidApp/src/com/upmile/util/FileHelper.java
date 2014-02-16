@@ -9,13 +9,14 @@ import org.json.JSONObject;
 import android.content.Context;
 
 public class FileHelper {
-	public final static String FILENAME = "user";
+	public final static String USER = "user";
+	public final static String BIZ = "biz";
 	
-	public static void saveUser(String user, Context ctx) {
+	public static void saveData(String name, String data, Context ctx) {
 		FileOutputStream fos = null;
 		try{
-			fos = ctx.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-			fos.write(user.getBytes());
+			fos = ctx.openFileOutput(name, Context.MODE_PRIVATE);
+			fos.write(data.getBytes());
 		}catch(Exception e){
 			
 		}finally{
@@ -29,12 +30,12 @@ public class FileHelper {
 			
 	}
 
-	public static JSONObject getUser(Context ctx){
+	public static JSONObject getData(String name, Context ctx){
 		BufferedInputStream fis = null;
-		byte[] buf = new byte[250];
+		byte[] buf = new byte[2500];
 		JSONObject ret = null;
 		try {
-			fis = new BufferedInputStream(ctx.openFileInput(FILENAME));
+			fis = new BufferedInputStream(ctx.openFileInput(name));
 			fis.read(buf);
 			ret = new JSONObject(new String(buf));
 		} catch (Exception e) {
@@ -43,8 +44,8 @@ public class FileHelper {
 		return ret;
 	}
 	
-	public static void removeUser(Context ctx){
-		ctx.deleteFile(FILENAME);
+	public static void removeData(String name, Context ctx){
+		ctx.deleteFile(name);
 	}
 	
 }

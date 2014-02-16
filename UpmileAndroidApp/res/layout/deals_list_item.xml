@@ -5,11 +5,16 @@
     android:orientation="vertical">
   
     <TextView
-        android:id="@+id/biz_view"
+        android:id="@+id/biz_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" />
-     
+    <TextView
+        android:id="@+id/biz_telephone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
     
   <HorizontalScrollView 
     android:id="@+id/hsview"
@@ -19,17 +24,12 @@
     android:horizontalSpacing="10dp"
     android:stretchMode="none"
     android:gravity="center" >
-    	<TableRow
-    		android:id="@+id/trow"
-    		android:layout_width="wrap_content" 
-    		android:layout_height="wrap_content"
-    		 >
-    			<TextView
-        			android:id="@+id/dealview"
-				 />
-    	    			
-    	    
-    	</TableRow>
+    <LinearLayout android:id="@+id/dealsrow"
+        android:orientation="horizontal"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content">
+        
+    </LinearLayout>
       
 </HorizontalScrollView>
      

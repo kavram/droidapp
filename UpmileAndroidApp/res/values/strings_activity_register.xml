@@ -18,8 +18,8 @@
     <string name="register_error_field_required">This field is required</string>
     <string name="register_error_email_exist">This email already exists</string>
     <string name="register_generic_error">Sorry, please try again later</string>
-    <string name="register_success">Thank you. We sent you confirmation email. Please click on Confirm link in the email to complete registration</string>
-    <string name="merchant_register_success">Thank you. We\'ll send you confirmation email once your registration will be approved.</string>
+    <string name="register_success">Thank you. We sent you an email to confirm that you own your email address. Please click on Confirm link in the email to complete registration</string>
+    <string name="merchant_register_success">Thank you. We sent you an email to confirm that you own your email address. Please click on Confirm link in the email to complete registration.</string>
 	<string name="register_ok_button">OK</string>
 	
 </resources>

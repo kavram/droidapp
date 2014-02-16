@@ -39,9 +39,8 @@
      	android:visibility="gone" >
     
         
-        <RelativeLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:context=".CheckMerchantRegistrationActivity" >
@@ -66,7 +65,7 @@
             	    android:paddingLeft="32dp"
             	    android:paddingRight="32dp"
             	    android:text="@string/register_ok_button" />
-        </RelativeLayout>
+        </LinearLayout>
             
 	</ScrollView>            
     

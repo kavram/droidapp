@@ -1,47 +1,64 @@
 package com.upmile.android;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.upmile.util.HttpPostHelper;
 
 import android.content.Context;
 import android.content.AsyncTaskLoader;;
 
 public class DealsLoader extends AsyncTaskLoader<List<DealBean>> {
 
+	
 	public DealsLoader(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public List<DealBean> loadInBackground() {
-		List<DealBean> deals = new ArrayList<DealBean>();
-		DealBean db1 = new DealBean();
-		db1.setBiz("biz1");
-		List<String> biz1deals = new ArrayList<String>();
-		biz1deals.add("b1deal1");
-		biz1deals.add("b1deal2");
-		biz1deals.add("b1deal3");
-		db1.setDeals(biz1deals);
-		deals.add(db1);
-		DealBean db2 = new DealBean();
-		db2.setBiz("biz2");
-		List<String> biz2deals = new ArrayList<String>();
-		biz2deals.add("b2deal1");
-		biz2deals.add("b2deal2");
-		biz2deals.add("b2deal3");
-		biz2deals.add("b2deal4");
-		biz2deals.add("b2deal5");
-		biz2deals.add("b2deal6");
-		biz2deals.add("b2deal7");
-		biz2deals.add("b2deal8");
-		biz2deals.add("b2deal9");
-		biz2deals.add("b2deal10");
+		Map<String, DealBean> map = new HashMap<String, DealBean>();
+		List<DealBean> list = new ArrayList<DealBean>();
+		JSONArray ret = null;
+		try {
+			HttpPostHelper hpe = new HttpPostHelper(63);
+			hpe.addSpParameter("lat", 37.76515);
+			hpe.addSpParameter("lon", -122.481);
+			hpe.addSpParameter("dist", 45);
+			ret = hpe.post();
+			for(int i = 0; i < ret.length(); i++){
+				JSONObject obj = ret.getJSONObject(i);
+				String bizId = obj.getJSONObject("nodes").getString("biz_id");
+				if(!map.containsKey(bizId)){
+					DealBean db = new DealBean(); 
+					db.setBiz(obj.getJSONObject("nodes").getString("biz_name"));
+					db.setPhone(obj.getJSONObject("nodes").getString("phone"));
+					map.put(bizId, db);
+				}
+				Deal deal = new Deal();
+				String expr = obj.getJSONObject("nodes").getString("expiration");
+				SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy h:mm a");
+				Date expDate = df.parse(expr);
+				deal.setExpiration(expDate);
+				deal.setName(obj.getJSONObject("nodes").getString("name"));
+				map.get(bizId).getDeals().add(deal);
+				
+			}
+		} catch (Exception e) {
 
+		}
+		for(DealBean db : map.values())
+			list.add(db);
 		
-		db2.setDeals(biz2deals);
-		deals.add(db2);
-		return deals;
+		return list;
 	}
 
 	@Override

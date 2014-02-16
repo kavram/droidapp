@@ -27,19 +27,28 @@ public class MySettingsActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		reloadUser();
+		//reloadUser();
 		getMenuInflater().inflate(R.menu.activity_my_settings, menu);
-		JSONObject user = FileHelper.getUser(getApplicationContext());
+		JSONObject user = FileHelper.getData(FileHelper.USER, getApplicationContext());
 		try {
-			menu.removeGroup(R.id.merchant_group);
 			if(user.get("biz_owner").equals("1")){
-				menu.add(Menu.NONE, R.id.merchant_registration, Menu.NONE, R.string.merchant_registration);
-			}else if(user.get("biz_owner").equals("3"))
-				menu.add(Menu.NONE, R.id.merchant_registration_check, Menu.NONE, R.string.merchant_registration);
-			else if(user.get("biz_owner").equals("2")){
-				menu.add(Menu.NONE, R.id.my_merchant_profile, Menu.NONE, R.string.my_merchant_profile);
-				menu.add(Menu.NONE, R.id.my_deals, Menu.NONE, R.string.my_deals);
-				menu.add(Menu.NONE, R.id.new_deal, Menu.NONE, R.string.new_deal);
+				menu.removeItem(R.id.merchant_registration_check);
+				menu.removeItem(R.id.my_deals);
+				menu.removeItem(R.id.new_deal);
+				menu.removeItem(R.id.my_merchant_profile);
+				//menu.add(R.id.merchant_group, R.id.merchant_registration, 1, R.string.merchant_registration);
+			}else if(user.get("biz_owner").equals("3")){
+				menu.removeItem(R.id.my_deals);
+				menu.removeItem(R.id.new_deal);
+				menu.removeItem(R.id.my_merchant_profile);
+				menu.removeItem(R.id.merchant_registration);
+				//menu.add(R.id.merchant_group, R.id.merchant_registration_check, 1, R.string.merchant_reg_check);
+			}else if(user.get("biz_owner").equals("2")){
+				menu.removeItem(R.id.merchant_registration);
+				menu.removeItem(R.id.merchant_registration_check);
+				//menu.add(R.id.merchant_group, R.id.my_merchant_profile, 3, R.string.my_merchant_profile);
+				//menu.add(R.id.merchant_group, R.id.my_deals, 2, R.string.my_deals);
+				//menu.add(R.id.merchant_group, R.id.new_deal, 1, R.string.new_deal);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,13 +90,13 @@ public class MySettingsActivity extends Activity {
 
 	private void reloadUser(){
 		try {
-			JSONObject user = FileHelper.getUser(getApplicationContext());
+			JSONObject user = FileHelper.getData(FileHelper.USER, getApplicationContext());
 			HttpPostHelper hpe = new HttpPostHelper(11);
 			hpe.addParameter("id", user.getString("id"));
 			JSONArray ar = hpe.post();
 			if(ar != null && ar.length() > 0){
 				user = ar.getJSONObject(0);
-				FileHelper.saveUser(user.toString(), getApplicationContext());
+				FileHelper.saveData(FileHelper.USER, user.toString(), getApplicationContext());
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

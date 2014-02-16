@@ -285,7 +285,7 @@ public class RegisterActivity extends Activity {
 			if (success) {
 				mRegStatusView.setText(getString(R.string.register_success));
 				try {
-					FileHelper.saveUser(ret.getJSONObject("nodes").toString(), getApplicationContext());
+					FileHelper.saveData(FileHelper.USER, ret.getJSONObject("nodes").toString(), getApplicationContext());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
