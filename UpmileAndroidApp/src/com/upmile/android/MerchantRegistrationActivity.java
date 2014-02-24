@@ -2,6 +2,7 @@ package com.upmile.android;
 
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpEntity;
@@ -25,7 +26,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.LoaderManager;
 import android.content.Intent;
+import android.content.Loader;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,10 +37,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.text.TextUtils;
 
-public class MerchantRegistrationActivity extends Activity {
+public class MerchantRegistrationActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<List<BizCategory>> {
 	
 	private MerchantRegistrationActivity thisActivity = null;
 	private String merchantName;
@@ -68,12 +72,13 @@ public class MerchantRegistrationActivity extends Activity {
 	private EditText zipcodeView;
 	private View mRegisterFormView;
 	private TextView mRegisterStatusView;
-	private Map<String, BizCategory> categories = null;
+	//private Map<String, BizCategory> categories = null;
 	private Button regButton;
 	private Button okButton;
 	private Button cancelButton;
+	ArrayAdapter<BizCategory> adapterCategories = null;
 	
-	LoadCategoriesTask loadCategoriesTask = null;
+	//LoadCategoriesTask loadCategoriesTask = null;
 	SubmitMerchantRegistrationTask mRegisterTask = null;
 	
 	@Override
@@ -106,12 +111,12 @@ public class MerchantRegistrationActivity extends Activity {
 		categoriesSpinner = (Spinner) findViewById(R.id.category);
 		subCategoriesSpinner = (Spinner) findViewById(R.id.subcategory);
 		mRegisterFormView.setVisibility(View.GONE);
-		if(categories == null){
-			showProgress(true);
-			loadCategoriesTask = new LoadCategoriesTask();
-			loadCategoriesTask.execute((Void) null);
-			return;
-		}
+		adapterCategories = new ArrayAdapter<BizCategory>(thisActivity, android.R.layout.simple_spinner_item);
+		adapterCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		categoriesSpinner.setAdapter(adapterCategories);
+		CategorySpinnerListener csl = new CategorySpinnerListener(thisActivity);
+		categoriesSpinner.setOnItemSelectedListener(csl);
+		getLoaderManager().initLoader(0, null, this);
 		completeOnCreate();
 	}
 
@@ -470,77 +475,26 @@ public class MerchantRegistrationActivity extends Activity {
 	@Override
 	protected void onStop(){
 		super.onStop();
-		if(loadCategoriesTask != null)
-			loadCategoriesTask.cancel(true);
 		if(mRegisterTask != null)
 			mRegisterTask.cancel(true);
 	}
 
 	
-	public class LoadCategoriesTask extends AsyncTask<Void, Void, Boolean> {
-		private JSONArray jsonCategories = null;
-		private JSONArray subCategories = null;
+	@Override
+	public Loader<List<BizCategory>> onCreateLoader(int arg0, Bundle arg1) {
+		return new BizCategoriesLoader(this);
+	}
+
+	@Override
+	public void onLoadFinished(Loader<List<BizCategory>> arg0, List<BizCategory> list) {
+		adapterCategories.addAll(list);
 		
-		@Override
-		protected Boolean doInBackground(Void... params) {
-			try {
-				HttpPostHelper hpe = new HttpPostHelper(4);
-				subCategories = hpe.post();
-				hpe = new HttpPostHelper(34);
-				jsonCategories = hpe.post();
-			} catch (Exception e) {
-				return false;
-			}
-			return true;
-		}
+	}
 
-		@Override
-		protected void onPostExecute(final Boolean success) {
-			loadCategoriesTask = null;
-			showProgress(false);
-			try{
-				if(success){
-					BizCategory bc = new BizCategory();
-					bc.setId("0");
-					bc.setName("Select Category");
-					selCategory = bc;
-					ArrayAdapter<BizCategory> arCategories = new ArrayAdapter<BizCategory>(thisActivity, android.R.layout.simple_spinner_item);
-					arCategories.add(bc);
-					categories = new HashMap<String, BizCategory>();
-					for(int i = 0; i < jsonCategories.length(); i ++){
-						JSONObject jobj = jsonCategories.getJSONObject(i);
-						BizCategory cat = new BizCategory();
-						cat.setId(jobj.getJSONObject("nodes").getString("id"));
-						cat.setName(jobj.getJSONObject("nodes").getString("name"));
-						categories.put(cat.getId(), cat);
-						arCategories.add(cat);
-					}
-					for(int i = 0; i < subCategories.length(); i++){
-						JSONObject jobj = subCategories.getJSONObject(i);
-						BizSubCategory bsc = new BizSubCategory();
-						bsc.setId(jobj.getJSONObject("nodes").getString("id"));
-						bsc.setName(jobj.getJSONObject("nodes").getString("name"));
-						bsc.setCategoryId(jobj.getJSONObject("nodes").getString("category_id"));
-						if(categories.containsKey(bsc.getCategoryId()))
-							categories.get(bsc.getCategoryId()).getSubCategories().add(bsc);
-					}
-					
-					arCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-					categoriesSpinner.setAdapter(arCategories);
-					CategorySpinnerListener csl = new CategorySpinnerListener(thisActivity);
-					categoriesSpinner.setOnItemSelectedListener(csl);
-					completeOnCreate();
-			}
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-
-		@Override
-		protected void onCancelled() {
-			loadCategoriesTask = null;
-			showProgress(false);
-		}
+	@Override
+	public void onLoaderReset(Loader<List<BizCategory>> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

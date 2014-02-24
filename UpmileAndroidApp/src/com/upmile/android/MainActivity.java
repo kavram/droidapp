@@ -19,40 +19,46 @@ import android.support.v4.app.FragmentActivity;
 public class MainActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<List<DealBean>> {
 
 	
-	private ListView dealsListView;
-	private DealsAdapter adapter;
+	private ListView dealsListView = null;
+	private DealsAdapter adapter = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		dealsListView = (ListView) findViewById(R.id.deals_list);
-		adapter = new DealsAdapter(this.getApplicationContext());
-		dealsListView.setAdapter(adapter);
-		getLoaderManager().initLoader(0, null, this);
+		if(dealsListView == null)
+			dealsListView = (ListView) findViewById(R.id.deals_list);
+		if(adapter == null){
+			adapter = new DealsAdapter(this.getApplicationContext());
+			dealsListView.setAdapter(adapter);
+			getLoaderManager().initLoader(0, null, this);
+		}
 	}
 
 	@Override
 	protected void onStart(){
 		super.onStart();
-		//JSONObject us = FileHelper.getUser(getApplicationContext());
-		//if(us != null){
-			
-		//}
-		
-		//getDeals();
+	
 	}
 	
-	//@Override
-	//protected void onResume(){
-	//	super.onResume();
-	//}
+	@Override
+	protected void onResume(){
+		super.onResume();
+	}
 	
-	//@Override
-	//protected void onStop(){
-	//	super.onStop();
-	//}
+	
+	@Override
+	protected void onStop(){
+		super.onStop();
+	}
+
+	@Override
+	protected void onPause(){
+		super.onPause();
+		if(adapter != null)
+			adapter.clearDeals();
+	}
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

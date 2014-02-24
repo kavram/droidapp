@@ -50,7 +50,9 @@ public class DealsAdapter extends ArrayAdapter<DealBean> {
         return view;
 	} 
 	
-         
+    public void clearDeals(){
+    	clear();
+    }
  
 	
 
