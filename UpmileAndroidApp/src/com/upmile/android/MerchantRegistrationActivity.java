@@ -107,6 +107,7 @@ public class MerchantRegistrationActivity extends FragmentActivity implements Lo
 		setSelCategory(null);
 		setSelSubCategory(null);
 		mRegisterFormView = findViewById(R.id.merchant_register_form);
+		mRegisterFormView.setVisibility(View.VISIBLE);
 		mRegisterStatusView = (TextView)findViewById(R.id.register_status_textview);
 		categoriesSpinner = (Spinner) findViewById(R.id.category);
 		subCategoriesSpinner = (Spinner) findViewById(R.id.subcategory);
@@ -165,8 +166,6 @@ public class MerchantRegistrationActivity extends FragmentActivity implements Lo
 						startActivity(intent);
 					}
 				});
-
-		mRegisterFormView.setVisibility(View.VISIBLE);
 	}
 	
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
