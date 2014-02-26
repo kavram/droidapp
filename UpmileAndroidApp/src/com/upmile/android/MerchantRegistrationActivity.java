@@ -111,7 +111,6 @@ public class MerchantRegistrationActivity extends FragmentActivity implements Lo
 		mRegisterStatusView = (TextView)findViewById(R.id.register_status_textview);
 		categoriesSpinner = (Spinner) findViewById(R.id.category);
 		subCategoriesSpinner = (Spinner) findViewById(R.id.subcategory);
-		mRegisterFormView.setVisibility(View.GONE);
 		adapterCategories = new ArrayAdapter<BizCategory>(thisActivity, android.R.layout.simple_spinner_item);
 		adapterCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		categoriesSpinner.setAdapter(adapterCategories);
