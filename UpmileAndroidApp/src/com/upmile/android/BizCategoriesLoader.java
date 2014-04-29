@@ -59,9 +59,14 @@ public class BizCategoriesLoader extends AsyncTaskLoader<List<BizCategory>> {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		if(categories != null)
+		if(categories != null){
+			BizCategory lbl = new BizCategory();
+			lbl.setName("Select Business Category");
+			lbl.setId("0");
+			bcList.add(lbl);
 			for(BizCategory bc : categories.values())
 				bcList.add(bc);
+		}
 		
 		return bcList;
 	}

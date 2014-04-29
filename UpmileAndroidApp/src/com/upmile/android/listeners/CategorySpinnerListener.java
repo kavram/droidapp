@@ -19,7 +19,7 @@ public class CategorySpinnerListener extends Activity implements OnItemSelectedL
 		this.merRegActivity = merRegActivity;
 		selectSubCategory = new BizSubCategory();
 		selectSubCategory.setId("0");
-		selectSubCategory.setName("Select Subcategory");
+		selectSubCategory.setName("Select Business SubCategory");
 		merRegActivity.setSelSubCategory(selectSubCategory);
 		SubCategorySpinnerListener subListener = new SubCategorySpinnerListener(merRegActivity);
 		merRegActivity.getSubCategoriesSpinner().setOnItemSelectedListener(subListener);

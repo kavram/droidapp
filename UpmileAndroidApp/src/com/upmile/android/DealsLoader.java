@@ -41,6 +41,11 @@ public class DealsLoader extends AsyncTaskLoader<List<DealBean>> {
 					DealBean db = new DealBean(); 
 					db.setBiz(obj.getJSONObject("nodes").getString("biz_name"));
 					db.setPhone(obj.getJSONObject("nodes").getString("phone"));
+					db.setStreet(obj.getJSONObject("nodes").getString("street"));
+					db.setCity(obj.getJSONObject("nodes").getString("city"));
+					db.setState(obj.getJSONObject("nodes").getString("state"));
+					db.setZipcode(obj.getJSONObject("nodes").getString("zipcode"));
+					
 					map.put(bizId, db);
 				}
 				Deal deal = new Deal();

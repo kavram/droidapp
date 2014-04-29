@@ -14,6 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" />
+    <TextView
+        android:id="@+id/biz_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
     
     
   <HorizontalScrollView 
@@ -27,7 +32,7 @@
     <LinearLayout android:id="@+id/dealsrow"
         android:orientation="horizontal"
     android:layout_width="wrap_content" 
-    android:layout_height="wrap_content">
+    android:layout_height="fill_parent">
         
     </LinearLayout>
       

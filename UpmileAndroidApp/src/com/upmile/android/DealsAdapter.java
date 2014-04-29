@@ -34,13 +34,15 @@ public class DealsAdapter extends ArrayAdapter<DealBean> {
         bizNameView.setText(item.getBiz());
         TextView bizTelView = (TextView) view.findViewById(R.id.biz_telephone);
         bizTelView.setText(item.getPhone());
+        TextView bizAddressView = (TextView) view.findViewById(R.id.biz_address);
+        bizAddressView.setText(item.getStreet() + " " + item.getCity() + " " + item.getState() + " " + item.getZipcode());
         LinearLayout hsView = (LinearLayout) view.findViewById(R.id.dealsrow);
         for(Deal deal : item.getDeals()){
         	View dealView = mInflater.inflate(R.layout.deal_view, parent, false);
         	TextView dealTView = (TextView) dealView.findViewById(R.id.deal_name);
         	dealTView.setText(deal.getName());
         	TextView dealExp = (TextView) dealView.findViewById(R.id.deal_expiration);
-        	dealExp.setText(deal.getExpiration().toString());
+        	dealExp.setText("Exp: " + deal.getExprLabel());
             TextView dv = new TextView(this.getContext());
             dv.setPadding(3, 0, 3, 1);
             dv.setText(deal.getName());
